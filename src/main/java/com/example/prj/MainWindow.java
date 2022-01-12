@@ -1,5 +1,6 @@
 package com.example.prj;
 
+import ChatSystem.chatClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,7 +48,7 @@ public class MainWindow implements Initializable {
     }
 
     public void openChatWindow(ActionEvent e) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ChatWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SelectChat.fxml"));
         Parent root1 = (Parent)fxmlLoader.load();
         Stage stage = new Stage();
         Scene scene = new Scene(root1);

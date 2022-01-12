@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="304.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prj.SelectChat">
+    <children>
+        
+        <Label layoutX="24.0" layoutY="18.0" prefHeight="17.0" prefWidth="184.0" text="Chat " textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+
+      <TextField fx:id="textField" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="212.0" promptText="Search People to chat with" />
+
+      <Label layoutX="24.0" layoutY="318.0" prefHeight="17.0" prefWidth="235.0" text="Or talk to customer servive here." textFill="WHITE" />
+      <Button fx:id="customerService" layoutX="24.0" layoutY="349.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Customer service" />
+      <ListView fx:id="listView" layoutX="14.0" layoutY="89.0" prefHeight="215.0" prefWidth="277.0" />
+      <Button fx:id="search" layoutX="233.0" layoutY="52.0" mnemonicParsing="false" onAction="#searchClient" text="Search" />
+      <Button fx:id="exitButton" layoutX="266.0" layoutY="16.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="19.0" text="X" />
+    </children>
+</AnchorPane>
