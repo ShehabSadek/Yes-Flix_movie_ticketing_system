@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#680c0c" height="421.0" layoutX="-6.0" layoutY="-9.0" stroke="BLACK" strokeType="INSIDE" width="302.0" />
+      <ImageView fitHeight="165.0" fitWidth="238.0" layoutX="26.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imgs/YesLogAlpha1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="72.0" layoutY="322.0" prefHeight="17.0" prefWidth="178.0" text="SIGN-IN" textFill="#c9c9c9">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Label>
+      <TextField layoutX="448.0" layoutY="156.0" />
+      <TextField layoutX="448.0" layoutY="204.0" />
+      <Label layoutX="342.0" layoutY="151.0" prefHeight="35.0" prefWidth="105.0" text="Username">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="342.0" layoutY="199.0" prefHeight="35.0" prefWidth="95.0" text="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
