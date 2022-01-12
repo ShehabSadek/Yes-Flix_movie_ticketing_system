@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="674.0" prefWidth="1241.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prj.MainWindow">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000fa" height="674.0" stroke="BLACK" strokeType="INSIDE" width="324.0" />
+        <ImageView fitHeight="93.0" fitWidth="165.0" layoutX="79.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../imgs/YesLogAlphaRed_00.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="home" layoutY="149.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Home" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <Button fx:id="Movies" layoutY="220.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Movies" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+        <Button fx:id="Reservations" layoutY="292.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Reservations" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <Button fx:id="Account" layoutY="362.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Account" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+        <Button fx:id="Logout" layoutY="435.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Logout" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <Button fx:id="Exit" layoutX="22.0" layoutY="626.0" mnemonicParsing="false" onAction="#exitMainWindow" style="-fx-background-color: dimgrey;" text="Exit" />
+        <Button fx:id="chat" layoutX="1177.0" layoutY="626.0" mnemonicParsing="false" onAction="#openChatWindow" text="Chat" />
+    </children>
+</AnchorPane>
