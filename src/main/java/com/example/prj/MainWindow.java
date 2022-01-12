@@ -29,6 +29,8 @@ public class MainWindow implements Initializable {
     @FXML
     private Button Logout;
     @FXML
+    private Button Exit;
+    @FXML
     private ChoiceBox<String> dropDownMenu;
     @FXML Button chat;
 
@@ -50,5 +52,9 @@ public class MainWindow implements Initializable {
         stage.setX(boundsInScene.getCenterX() - 85);
         stage.setY(boundsInScene.getCenterY() - 300);
         stage.show();
+    }
+    public void exitMainWindow(ActionEvent e){
+        Stage stage = (Stage) Exit.getScene().getWindow();
+        stage.close();
     }
 }

@@ -6,13 +6,15 @@ public class Configuration implements Serializable {
     int currentSignedInId = 0;
     int currentMaxClientId = 0;
     int currentMaxAdminId = 0;
+    int currentMaxMovieId= 0;
 
-    public Configuration(int currentSignedInId, int currentMaxClientId, int currentMaxAdminId) throws IOException, ClassNotFoundException {
+    public Configuration(int currentSignedInId, int currentMaxClientId, int currentMaxAdminId,int currentMaxMovieId) throws IOException, ClassNotFoundException {
         File file = new File("Configurations.BIN");
         if(file.length() == 0) {
             this.currentSignedInId = currentSignedInId;
             this.currentMaxClientId = currentMaxClientId;
             this.currentMaxAdminId = currentMaxAdminId;
+            this.currentMaxMovieId= currentMaxMovieId;
         }
         else{
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("Configurations.BIN"));
@@ -20,6 +22,7 @@ public class Configuration implements Serializable {
             this.currentSignedInId = conf.currentSignedInId;
             this.currentMaxClientId = conf.currentMaxClientId;
             this.currentMaxAdminId = conf.currentMaxAdminId;
+            this.currentMaxMovieId = conf.currentMaxMovieId;
         }
     }
 
@@ -29,6 +32,7 @@ public class Configuration implements Serializable {
             this.currentSignedInId = 0;
             this.currentMaxClientId = 0;
             this.currentMaxAdminId = 0;
+            this.currentMaxMovieId = 0;
         }
         else{
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("Configurations.BIN"));
@@ -36,6 +40,7 @@ public class Configuration implements Serializable {
             this.currentSignedInId = conf.currentSignedInId;
             this.currentMaxClientId = conf.currentMaxClientId;
             this.currentMaxAdminId = conf.currentMaxAdminId;
+            this.currentMaxMovieId = conf.currentMaxMovieId;
         }
     }
 
@@ -51,6 +56,8 @@ public class Configuration implements Serializable {
         return currentMaxAdminId;
     }
 
+    public int getCurrentMaxMovieId(){return  currentMaxMovieId;}
+
     public void writeCurrentSignedInId(int currentId) throws IOException {
         this.currentSignedInId = currentId;
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Configurations.BIN"));
@@ -64,6 +71,13 @@ public class Configuration implements Serializable {
         out.writeObject(this);
         out.close();
     }
+    public void writeCurrentMaxMovieId(int currentId) throws IOException {
+        this.currentMaxMovieId = currentId;
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Configurations.BIN"));
+        out.writeObject(this);
+        out.close();
+    }
+
 
     public void readConfiguration() throws IOException, ClassNotFoundException {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("Configurations.BIN"));
@@ -71,6 +85,7 @@ public class Configuration implements Serializable {
         this.currentMaxAdminId = conf.currentMaxAdminId;
         this.currentSignedInId = conf.currentSignedInId;
         this.currentMaxClientId = conf.currentMaxClientId;
+        this.currentMaxMovieId = conf.currentMaxMovieId;
         in.close();
     }
 }
