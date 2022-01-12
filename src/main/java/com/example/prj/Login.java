@@ -1,5 +1,6 @@
 package com.example.prj;
 
+import ChatSystem.chatClient;
 import SessionHandler.SessionHandler;
 import User.Client;
 import javafx.event.ActionEvent;

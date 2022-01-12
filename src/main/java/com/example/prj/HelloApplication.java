@@ -1,5 +1,7 @@
 package com.example.prj;
 
+import ChatSystem.chatClient;
+import ChatSystem.chatServer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
