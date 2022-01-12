@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.SplitPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -33,6 +35,8 @@ public class MainWindow implements Initializable {
     @FXML
     private ChoiceBox<String> dropDownMenu;
     @FXML Button chat;
+    @FXML
+    Pane secPane;
 
 
     @Override
@@ -57,4 +61,22 @@ public class MainWindow implements Initializable {
         Stage stage = (Stage) Exit.getScene().getWindow();
         stage.close();
     }
+    @FXML
+    public void onButton1() throws IOException {
+        if(secPane.getChildren() != null){
+            secPane.getChildren().clear();
+        }
+        SplitPane newLoadedPane =  FXMLLoader.load(getClass().getResource("hall-view.fxml"));
+
+        newLoadedPane.setPrefSize(secPane.getPrefWidth(), secPane.getPrefHeight());
+        secPane.getChildren().add(newLoadedPane);
+    }
+    public void onButton2() throws IOException {
+        if(secPane.getChildren() != null){
+            secPane.getChildren().clear();
+        }
+        Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("ChatWindow.fxml"));
+        secPane.getChildren().add(newLoadedPane);
+    }
+
 }
