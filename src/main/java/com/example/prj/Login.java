@@ -29,6 +29,10 @@ public class Login {
     private Button SignUp;
     @FXML
     private Button exitButton;
+    @FXML
+    private Label warningLabel1;
+    @FXML
+    private Label warningLabel2;
 
     public void changeWindowToSignUp(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Signup.fxml"));
@@ -41,13 +45,14 @@ public class Login {
     public void LoginClient(ActionEvent e) throws IOException {
         int n = 4;
         if(usernameTextField.getText().length() >= n && passwordPasswordField.getText().length() >= n){
-            System.out.println("entered");
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("Clients.BIN"));
             while(true){
                 try{
                     Client client = (Client)in.readObject();
                     if(client.getUserName().equals(usernameTextField.getText())){
+                        warningLabel1.setText("");
                         if(client.getPassword().equals(passwordPasswordField.getText())){
+                            warningLabel2.setText("");
                             SessionHandler.currentSignedInClient = client;
                             in.close();
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainWindow.fxml"));
@@ -58,6 +63,12 @@ public class Login {
                             stage.show();
                             return;
                         }
+                        else{
+                            warningLabel2.setText("Incorrect Password");
+                        }
+                    }
+                    else{
+                        warningLabel1.setText("No user with this Username exits");
                     }
                 } catch (EOFException | ClassNotFoundException ee) {
                     in.close();
@@ -67,9 +78,7 @@ public class Login {
             }
             in.close();
         }
-        else{
 
-        }
     }
 
     public void exitWindow(ActionEvent e){

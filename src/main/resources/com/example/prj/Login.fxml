@@ -46,5 +46,7 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label fx:id="warningLabel1" layoutX="330.0" layoutY="196.0" prefHeight="17.0" prefWidth="273.0" textFill="RED" />
+      <Label fx:id="warningLabel2" layoutX="330.0" layoutY="284.0" prefHeight="17.0" prefWidth="227.0" textFill="RED" />
    </children>
 </AnchorPane>
