@@ -2,6 +2,7 @@ package SessionHandler;
 
 import ChatSystem.chatClient;
 import ChatSystem.chatServer;
+import Movie.Movie;
 import User.Admin;
 import User.Client;
 
@@ -14,7 +15,7 @@ public class SessionHandler {
     public static String serverIp = "localhost";
     public static int port = 6969;
     public static String currentChatWithClient;
-
+    public static Movie currentMovie = null;
 
 }
 

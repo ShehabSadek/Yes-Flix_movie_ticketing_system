@@ -3,12 +3,14 @@ package User;
 import Configuration.Configuration;
 import CustomStreams.CustomObjectOutputStream;
 import SessionHandler.SessionHandler;
+import Ticket.Ticket;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Client extends User implements Serializable {
     //private String ClientId;
-
+    public ArrayList<Ticket> tickets = new ArrayList<>();
 
     public Client(int ID, String userName, String password){
         super(ID, userName, password);
@@ -221,7 +223,9 @@ public class Client extends User implements Serializable {
         in.close();
         return false;
     }
-
+    public void addTicket(Ticket ticket){
+        tickets.add(ticket);
+    }
 
 }
 

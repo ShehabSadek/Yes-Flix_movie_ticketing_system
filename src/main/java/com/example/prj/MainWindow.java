@@ -74,11 +74,6 @@ public class MainWindow implements Initializable {
         secPane.getChildren().add(newLoadedPane);
     }
     public void onButton2() throws IOException {
-        if(secPane.getChildren() != null){
-            secPane.getChildren().clear();
-        }
-        Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("ChatWindow.fxml"));
-        secPane.getChildren().add(newLoadedPane);
     }
 
 }

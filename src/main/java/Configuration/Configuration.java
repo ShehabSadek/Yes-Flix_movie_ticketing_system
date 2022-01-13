@@ -7,8 +7,7 @@ public class Configuration implements Serializable {
     int currentSignedInAdminId = 0;
     int currentMaxClientId = 0;
     int currentMaxAdminId = 0;
-    int currentMaxMovieId= 0;
-
+    public int currentMaxMovieId= 0;
     public Configuration(int currentSignedInId, int currentMaxClientId, int currentMaxAdminId,int currentMaxMovieId, int currentSignedInAdminId) throws IOException, ClassNotFoundException {
         File file = new File("Configurations.BIN");
         if(file.length() == 0) {

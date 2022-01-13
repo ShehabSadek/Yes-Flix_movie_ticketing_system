@@ -15,6 +15,6 @@ public class CustomObjectOutputStream extends ObjectOutputStream {
     }
 
     public void writeStreamHeader() throws IOException{
-        return;
+        reset();
     }
 }
