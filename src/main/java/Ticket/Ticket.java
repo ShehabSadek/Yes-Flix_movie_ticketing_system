@@ -2,7 +2,7 @@ package Ticket;
 
 import Halls.Halls;
 import Halls.Seats;
-import Movies.Movies;
+import Movie.Movie;
 
 import java.io.Serializable;
 import java.sql.Time;
@@ -14,7 +14,7 @@ public class Ticket implements Serializable {
     private Seats seat;
     private Date playingDate;
     private Time playingTime;
-    private Movies movie;
+    private Movie movie;
 
     public Ticket(Halls hall, Seats seat, Date playingDate, Time playingTime) {
         this.hall = hall;
@@ -23,11 +23,11 @@ public class Ticket implements Serializable {
         this.playingTime = playingTime;
     }
 
-    public Movies getMovie() {
+    public Movie getMovie() {
         return movie;
     }
 
-    public void setMovie(Movies movie) {
+    public void setMovie(Movie movie) {
         this.movie = movie;
     }
 
@@ -65,5 +65,16 @@ public class Ticket implements Serializable {
 
     public void setPlayingTime(Time playingTime) {
         this.playingTime = playingTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id=" + id +
+                ", playingDate=" + playingDate +
+                ", playingTime=" + playingTime +
+                ", movie=" + movie.getName() +
+                ", seat=" + seat.getSeatNumber() +
+                '}';
     }
 }

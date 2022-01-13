@@ -2,9 +2,11 @@ package SessionHandler;
 
 import ChatSystem.chatClient;
 import ChatSystem.chatServer;
+import Movie.Movie;
 import User.Admin;
 import User.Client;
 import com.example.prj.ProtUser;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
@@ -18,5 +20,7 @@ public class SessionHandler {
     public static ProtUser currentEditingClient;
 
 
+    public static Movie currentMovie = null;
+    public static Pane GPane = null;
 }
 

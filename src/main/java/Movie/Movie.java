@@ -20,18 +20,19 @@ public class Movie implements Serializable {
     private int duration;
     private String description;
     private float score;
-    private String[] genres;
-    private String trailer; //*A url or relative path to the local video file* (//TODO : To be added to constructors)
+    private String genres;
+    private String ImagePath;
     private int id = 0;
     //private Halls hall;
 
     //Parameterized constructor
-    public Movie(String name, int duration, String description, float score, String[] genres) {
+    public Movie(String name, int duration, String description, float score, String genres,String ImagePath) {
         this.name = name;
         this.duration = duration;
         this.description = description;
         this.score = score;
         this.genres = genres;
+        this.ImagePath = ImagePath;
         id++;
     }
     //public void setHall(Halls hall){
@@ -43,7 +44,7 @@ public class Movie implements Serializable {
 
     //No arg constructor (for testing) //TODO : to be deleted ?
     public Movie() {
-        this("TEST", 120, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam malesuada.", 4.5f, new String[]{"Horror", "Comedy"});
+        this("TEST", 120, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam malesuada.", 4.5f, "Horror, Comedy","@/src/main/resources/imgs/Dunkirk.png");
         id++;
     }
 
@@ -66,10 +67,10 @@ public class Movie implements Serializable {
     }
 
     public String getTrailer() {
-        return trailer;
+        return ImagePath;
     }
 
-    public String[] getGenres() {
+    public String getGenres() {
         return genres;
     }
 
@@ -96,10 +97,10 @@ public class Movie implements Serializable {
     }
 
     public void setTrailer(String trailer) {
-        this.trailer = trailer;
+        this.ImagePath = trailer;
     }
 
-    public void setGenres(String[] genres) {
+    public void setGenres(String genres) {
         this.genres = genres;
     }
 
@@ -112,7 +113,7 @@ public class Movie implements Serializable {
         if(file.length() == 0) {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Movies.BIN", true));
             Configuration conf = new Configuration();
-            //-this.setMovieId(conf.getCurrentMaxMovieId() + 1);
+            this.setId(conf.getCurrentMaxMovieId() + 1);
             conf.writeCurrentMaxMovieId(conf.getCurrentMaxMovieId() + 1);
             out.writeObject(this);
             out.close();
@@ -121,7 +122,7 @@ public class Movie implements Serializable {
         else{
             CustomObjectOutputStream out = new CustomObjectOutputStream(new FileOutputStream("Movies.BIN", true));
             Configuration conf = new Configuration();
-            this.setId(conf.getCurrentMaxClientId() + 1);
+            this.setId(conf.getCurrentMaxMovieId() + 1);
             conf.writeCurrentMaxMovieId(conf.getCurrentMaxMovieId() + 1);
             out.writeObject(this);
             out.close();
@@ -134,7 +135,7 @@ public class Movie implements Serializable {
         out.close();
     }
 
-    public static void readClient() throws IOException, ClassNotFoundException {
+    public static void readMovie() throws IOException, ClassNotFoundException {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("Movies.BIN"));
         while(true){
             try{
@@ -192,6 +193,9 @@ public class Movie implements Serializable {
             while(fileInputStream.available() != 0){
                 Movie movie = (Movie) input.readObject();
                 if(movie.getId() == cl.getId()){
+                    Configuration configuration = new Configuration();
+                    configuration.currentMaxMovieId--;
+                    configuration.writeCurrentMaxMovieId(configuration.getCurrentMaxMovieId());
                     continue;
                 }
                 else{
@@ -203,7 +207,6 @@ public class Movie implements Serializable {
                         out.writeObject(movie);
                     }
                 }
-
             }
             input.close();
             os.close();
@@ -273,14 +276,14 @@ public class Movie implements Serializable {
             try{
                 Movie movie = (Movie) in.readObject();
                 if(movie.getId() == ID)
-                    in.close();
-                return movie;
+                    return movie;
             } catch (EOFException e) {
                 in.close();
                 break;
 
             }
         }
+
         in.close();
         return null;
     }

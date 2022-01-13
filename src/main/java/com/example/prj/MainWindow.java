@@ -1,6 +1,7 @@
 package com.example.prj;
 
 import ChatSystem.chatClient;
+import SessionHandler.SessionHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +44,7 @@ public class MainWindow implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        SessionHandler.GPane = secPane;
 //        String[] items = {"Dashboard", "Chat","Request Admin Access", "LogOut", "Exit"};
 //        dropDownMenu.getItems().addAll(items);
     }
@@ -77,8 +79,11 @@ public class MainWindow implements Initializable {
         if(secPane.getChildren() != null){
             secPane.getChildren().clear();
         }
-        Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("ChatWindow.fxml"));
+        Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("Reservations.fxml"));
+
+        newLoadedPane.setPrefSize(secPane.getPrefWidth(), secPane.getPrefHeight());
         secPane.getChildren().add(newLoadedPane);
+
     }
 
 }

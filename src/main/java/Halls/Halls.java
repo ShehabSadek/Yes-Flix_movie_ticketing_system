@@ -3,7 +3,7 @@ package Halls;
 //import ConfigurationControl.Configuration;
 //import ConfigurationControl.ConfigurationList;
 //import CustomOutputStream.CustomOutputStream;
-import Movies.Movies;
+import Movie.Movie;
 import User.Client;
 import Halls.*;
 import java.io.*;
@@ -14,7 +14,7 @@ public class Halls implements Serializable {
     private int seatRows, seatColumns;
     private Seats[][] HallSeats;
     private int hallNumber;
-    private Movies movie = new Movies();
+    private Movie movie = new Movie();
 
     public int getHallNumber() {
         return hallNumber;
@@ -37,16 +37,16 @@ public class Halls implements Serializable {
         }
     }
 
-    public Halls(int seatRows, int seatColumns, Movies movie){
+    public Halls(int seatRows, int seatColumns, Movie movie){
         this(seatRows, seatColumns);
         this.movie = movie;
     }
 
-    public Movies getMovie() {
+    public Movie getMovie() {
         return movie;
     }
 
-    public void setMovie(Movies movie) {
+    public void setMovie(Movie movie) {
         this.movie = movie;
     }
 
@@ -263,29 +263,28 @@ public class Halls implements Serializable {
 //            System.out.println();
 //        }
 //    }
-//    public static boolean checkSeatAvailability(Date date, Time time, Halls hall, Seats seat) throws FileNotFoundException {
-//        boolean isAvailable = true;
-//        FileInputStream fileInputStream = new FileInputStream("Clients.Bin");
-//        try {
-//            ObjectInputStream input = new ObjectInputStream(fileInputStream);
-//            while(fileInputStream.available() != 0){
-//                Client client = (Client) input.readObject();
-//                if(client.tickets != null){
-//                    for(int i = 0; i < client.tickets.size(); i++){
-//                        if(client.tickets.get(i).getHall().getHallNumber() == hall.getHallNumber() && client.tickets.get(i).getPlayingDate().equals(date) && client.tickets.get(i).getPlayingTime().getHours() == (time.getHours()) && client.tickets.get(i).getSeat().getSeatNumber() == seat.getSeatNumber()){
-//                            isAvailable = false;
-//
-//                        }
-//                    }
-//                }
-//            }
-//            input.close();
-//        } catch (EOFException e) {
-//            e.printStackTrace();
-//        } catch (IOException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        return isAvailable;
-//    }
+    public static boolean checkSeatAvailability(Date date, Time time, Halls hall, Seats seat) throws FileNotFoundException {
+        boolean isAvailable = true;
+        FileInputStream fileInputStream = new FileInputStream("Clients.Bin");
+        try {
+            ObjectInputStream input = new ObjectInputStream(fileInputStream);
+            while(fileInputStream.available() != 0){
+                Client client = (Client) input.readObject();
+                if(client.tickets != null){
+                    for(int i = 0; i < client.tickets.size(); i++){
+                        if(client.tickets.get(i).getHall().getHallNumber() == hall.getHallNumber() && client.tickets.get(i).getPlayingDate().equals(date) && client.tickets.get(i).getPlayingTime().getHours() == (time.getHours()) && client.tickets.get(i).getSeat().getSeatNumber() == seat.getSeatNumber()){
+                            isAvailable = false;
 
+                        }
+                    }
+                }
+            }
+            input.close();
+        } catch (EOFException e) {
+            e.printStackTrace();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return isAvailable;
+    }
 }
