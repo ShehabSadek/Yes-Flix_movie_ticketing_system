@@ -11,6 +11,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import Movie.Movie;
 
 import java.io.IOException;
 
@@ -59,7 +60,8 @@ public class MainWindowAdmin {
 
     }
 
-    public void onStatsClicked() throws IOException {
+    public void onStatsClicked() throws IOException, ClassNotFoundException {
+        Movie.readMovie(234);
         Pane pane2 = FXMLLoader.load(getClass().getResource("Stats.fxml"));
         pane.getChildren().add(pane2);
     }

@@ -147,6 +147,7 @@ public class Movie implements Serializable {
                 Movie movie = (Movie)in.readObject();
                 System.out.println(movie.getName());
                 System.out.println(movie.getId());
+                System.out.println(movie.getScore());
             } catch (EOFException e) {
                 in.close();
                 break;
@@ -160,8 +161,10 @@ public class Movie implements Serializable {
         while(true){
             try{
                 Movie movie  = (Movie)in.readObject();
-                if(movie.getId() == ID)
+                //if(movie.getId() == ID)
                     System.out.println(movie.getName());
+                    System.out.println(movie.getNumberOfTimesVisited());
+                    System.out.println(movie.getScore());
             } catch (EOFException e) {
                 in.close();
                 break;
@@ -240,7 +243,7 @@ public class Movie implements Serializable {
             CustomObjectOutputStream out = new CustomObjectOutputStream(new FileOutputStream("Temp.Bin", true));
             while(fileInputStream.available() != 0){
                 Movie movie = (Movie) input.readObject();
-                if(movie.getId() == cl.getId()){
+                if(movie.getName().equals(cl.getName())){
                     if(count == 0){
                         os.writeObject(cl);
                         count++;
@@ -270,6 +273,53 @@ public class Movie implements Serializable {
         fileInputStream.close();
         movies.delete();
         if(temp.renameTo(movies2)){
+            System.out.println("Succesfuly renamed file");
+        }
+    }
+
+    public static void editMovie2(Movie cl) throws IOException {
+        FileInputStream fileInputStream = new FileInputStream("Movies.Bin");
+        File clients = new File("Movies.Bin");
+        File temp = new File("Temp.Bin");
+        File clients2 = new File("Movies.Bin");
+        int count = 0;
+        try {
+            ObjectInputStream input = new ObjectInputStream(fileInputStream);
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Temp.Bin", true));
+            CustomObjectOutputStream out = new CustomObjectOutputStream(new FileOutputStream("Temp.Bin", true));
+            while(fileInputStream.available() != 0){
+                Movie client = (Movie) input.readObject();
+                if(client.getName().equals(cl.getName())){
+                    if(count == 0){
+                        os.writeObject(cl);
+                        count++;
+                    }
+                    else{
+                        out.writeObject(cl);
+                    }
+                }
+                else{
+                    if(count == 0){
+                        os.writeObject(client);
+                        count++;
+                    }
+                    else{
+                        out.writeObject(client);
+                    }
+                }
+
+            }
+            input.close();
+            os.close();
+            out.close();
+        } catch (EOFException e) {
+            e.printStackTrace();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        fileInputStream.close();
+        clients.delete();
+        if(temp.renameTo(clients2)){
             System.out.println("Succesfuly renamed file");
         }
     }

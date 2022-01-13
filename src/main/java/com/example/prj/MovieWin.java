@@ -132,7 +132,7 @@ public class MovieWin implements Initializable {
             v.setOnMouseClicked((MouseEvent e) -> {
                 movies.get(i).numberOfTimesVisited++;
                 try {
-                    Movie.editMovie(movies.get(i));
+                    Movie.editMovie2(movies.get(i));
                     System.out.println(movies.get(i).getNumberOfTimesVisited());
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -203,19 +203,21 @@ public class MovieWin implements Initializable {
         Movie m3 =new Movie("Transformers",120,"Cars become robots", 4.2f,"Lols","@/src/main/resources/imgs/Transformers.png");
         Movie m4 =new Movie("blfobl",120,"Some descttnbjiha", 4.2f,"Lols","@/src/main/resources/imgs/Transformers.png");
         Movie m5 =new Movie("blfsfobl",120,"Some descttnbjiha", 4.2f,"Lols","@/src/main/resources/imgs/Inception.png");
-        Movie m6 =new Movie("ay 7aga",120,"Some descttnbjiha", 4.2f,"Lols","@/src/main/resources/imgs/Inception.png");
-        Movie m7 =new Movie("ay 7aga",120,"Some descttnbjiha", 4.2f,"Lols","@/src/main/resources/imgs/Transformers.png");
-        Movie m8 =new Movie("ay 7aga",120,"Some descttnbjiha", 4.2f,"Lols","@/src/main/resources/imgs/Transformers.png");
+        //Movie m6 =new Movie("ay 7aga",120,"Some descttnbjiha", 4.2f,"Lols","@/src/main/resources/imgs/Inception.png");
+        //Movie m7 =new Movie("ay 7aga",120,"Some descttnbjiha", 4.2f,"Lols","@/src/main/resources/imgs/Transformers.png");
+        //Movie m8 =new Movie("ay 7aga",120,"Some descttnbjiha", 4.2f,"Lols","@/src/main/resources/imgs/Transformers.png");
 
         m1.writeMovie();
         m2.writeMovie();
         m3.writeMovie();
         m4.writeMovie();
         m5.writeMovie();
-        m6.writeMovie();
-        m7.writeMovie();
-        m8.writeMovie();
+        //m6.writeMovie();
+        //m7.writeMovie();
+        //m8.writeMovie();
         Movie.readMovie();
     }
+
+
 
 }
