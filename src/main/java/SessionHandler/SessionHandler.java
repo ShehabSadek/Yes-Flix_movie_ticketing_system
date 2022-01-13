@@ -4,6 +4,7 @@ import ChatSystem.chatClient;
 import ChatSystem.chatServer;
 import User.Admin;
 import User.Client;
+import com.example.prj.ProtUser;
 
 import java.io.IOException;
 
@@ -14,6 +15,7 @@ public class SessionHandler {
     public static String serverIp = "localhost";
     public static int port = 6969;
     public static String currentChatWithClient;
+    public static ProtUser currentEditingClient;
 
 
 }

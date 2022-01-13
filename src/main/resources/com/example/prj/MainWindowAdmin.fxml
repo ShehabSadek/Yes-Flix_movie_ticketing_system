@@ -24,25 +24,26 @@
             <font>
                 <Font name="System Bold" size="18.0" />
             </font></Button>
-        <Button fx:id="Reservations" layoutY="292.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Edit Reservations" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font></Button>
-        <Button fx:id="Account" layoutY="445.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Account" textFill="WHITE">
+        <Button fx:id="Account" layoutY="382.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Account" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font></Button>
-        <Button fx:id="Logout" layoutY="516.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Logout" textFill="WHITE">
+        <Button fx:id="Logout" layoutY="546.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Logout" textFill="WHITE">
             <font>
                 <Font size="18.0" />
             </font></Button>
         <Button fx:id="Exit" layoutX="22.0" layoutY="626.0" mnemonicParsing="false" onAction="#exitMainWindow" style="-fx-background-color: dimgrey;" text="Exit" />
         <Button fx:id="chat" layoutX="1177.0" layoutY="626.0" mnemonicParsing="false" onAction="#openChatWindow" text="Chat" />
-      <Button fx:id="viewClients" layoutY="369.0" mnemonicParsing="false" onAction="#onViewClientPushed" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="View clients" textFill="WHITE">
+      <Button fx:id="viewClients" layoutY="301.0" mnemonicParsing="false" onAction="#onViewClientPushed" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="View clients" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
       <Pane fx:id="pane" layoutX="324.0" prefHeight="674.0" prefWidth="917.0" />
+      <Button fx:id="stats" layoutY="469.0" mnemonicParsing="false" onAction="#onStatsClicked" prefHeight="58.0" prefWidth="324.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Stats" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

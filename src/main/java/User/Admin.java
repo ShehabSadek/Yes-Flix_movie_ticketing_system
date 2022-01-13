@@ -49,8 +49,8 @@ public class Admin extends User implements Serializable {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Admin a = new Admin(45, "adminnikos", "admin");
-        //a.writeAdmin();
+        Admin a = new Admin(45, "admin", "admin");
+        a.writeAdmin();
         Admin.readAdmin();
     }
 }

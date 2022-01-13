@@ -18,5 +18,10 @@
       </Label>
       <TextField fx:id="textField" layoutX="17.0" layoutY="361.0" prefHeight="25.0" prefWidth="216.0" />
       <Button fx:id="sendButton" layoutX="245.0" layoutY="361.0" mnemonicParsing="false" onAction="#send" text="Send" />
+      <Label fx:id="warningLabel" layoutX="37.0" layoutY="139.0" prefHeight="76.0" prefWidth="227.0" textFill="#f50000">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

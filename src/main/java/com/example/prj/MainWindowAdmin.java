@@ -33,6 +33,8 @@ public class MainWindowAdmin {
     @FXML Button viewClients;
     @FXML
     Pane pane;
+    @FXML
+    Button stats;
 
     public void openChatWindow(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SelectChat.fxml"));
@@ -55,5 +57,10 @@ public class MainWindowAdmin {
         Pane pane2 = FXMLLoader.load(getClass().getResource("ViewClients.fxml"));
         pane.getChildren().add(pane2);
 
+    }
+
+    public void onStatsClicked() throws IOException {
+        Pane pane2 = FXMLLoader.load(getClass().getResource("Stats.fxml"));
+        pane.getChildren().add(pane2);
     }
 }

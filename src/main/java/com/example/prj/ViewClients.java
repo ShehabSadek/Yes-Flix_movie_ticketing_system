@@ -1,5 +1,6 @@
 package com.example.prj;
 
+import SessionHandler.SessionHandler;
 import User.Client;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -7,11 +8,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.css.SimpleStyleableIntegerProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -42,10 +49,36 @@ public class ViewClients implements Initializable {
     @FXML
     private Button editClient;
 
+    @FXML
+    private Button refresh;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        init();
+    }
+
+    public void onEditClient() throws IOException {
+        ProtUser user = tableView.getSelectionModel().getSelectedItem();
+        SessionHandler.currentEditingClient = user;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("editClient.fxml"));
+        Parent root1 = (Parent)fxmlLoader.load();
+        Stage stage = new Stage();
+        Scene scene = new Scene(root1);
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        Bounds boundsInScene = editClient.localToScene(editClient.getBoundsInLocal());
+        stage.setX(boundsInScene.getCenterX());
+        stage.setY(boundsInScene.getCenterY());
+        stage.show();
+    }
+
+    public void onRefreshClicked(){
+        init();
+    }
+
+    public void init(){
         firstnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getFirstname()));
         lastnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getLastname()));
         usernameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getUsername()));
@@ -83,9 +116,5 @@ public class ViewClients implements Initializable {
         }
 
         tableView.setItems(list);
-    }
-
-    public void onEditClient(){
-
     }
 }

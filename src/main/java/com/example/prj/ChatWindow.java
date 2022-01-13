@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.ConnectException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,6 +30,8 @@ public class ChatWindow implements Initializable {
     private TextField textField;
     @FXML
     private Label chatLabel;
+    @FXML
+    private Label warningLabel;
     chatClient chatCl = new chatClient("127.0. 0.1", 6969, "root");
 
     private boolean running;
