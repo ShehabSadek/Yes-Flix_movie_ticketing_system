@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.17665615141955837, 0.5" orientation="VERTICAL" prefHeight="413.0" prefWidth="376.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prj.HallsController">
+  <items>
+      <ComboBox fx:id="comboBox" onAction="#onTimePickerAction" prefWidth="150.0" />
+      <DatePicker fx:id="datePicker" onAction="#onDatePickerAction" />
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="237.0" prefWidth="374.0">
+         <children>
+             <GridPane fx:id="grid" alignment="CENTER" layoutX="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="258.0" prefWidth="374.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="-21.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+            </GridPane>
+            <Label layoutX="7.0" layoutY="45.0" prefHeight="18.0" prefWidth="91.0" text="Choose Seats">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+  </items>
+</SplitPane>
