@@ -39,9 +39,6 @@ public class HallsController {
     ArrayList<Integer> selectedSeats = null;
     @FXML
     protected void initialize() throws IOException, ClassNotFoundException {
-        Movie movie = new Movie();
-        movie.writeMovie();
-        SessionHandler.currentMovie = movie;
         selectedSeats = new ArrayList<>();
         grid.getChildren().clear();
         String[] arr = {"12:00", "2:00", "4:00", "6:00", "8:00", "10:00"};

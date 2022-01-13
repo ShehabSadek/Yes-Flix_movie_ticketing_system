@@ -6,6 +6,7 @@
 
 <AnchorPane prefHeight="622.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prj.MovieWin">
    <children>
+      <Pane fx:id="secPane" layoutY="7.0" prefHeight="614.0" prefWidth="918.0" />
       <ImageView fx:id="v1" fitHeight="150.0" fitWidth="200.0" layoutX="116.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="v2" fitHeight="150.0" fitWidth="200.0" layoutX="340.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="v3" fitHeight="150.0" fitWidth="200.0" layoutX="578.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />

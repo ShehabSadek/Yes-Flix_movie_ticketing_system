@@ -59,6 +59,11 @@ public class MainWindowAdmin {
         pane.getChildren().add(pane2);
 
     }
+    public void onMoviesPushed() throws IOException {
+        Pane pane2 = FXMLLoader.load(getClass().getResource("AddMovie.fxml"));
+        pane.getChildren().add(pane2);
+
+    }
 
     public void onStatsClicked() throws IOException, ClassNotFoundException {
         Movie.readMovie(234);

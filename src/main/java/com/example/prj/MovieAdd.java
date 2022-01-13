@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -84,7 +85,7 @@ public void Confirm() throws IOException, ClassNotFoundException {
     if(title.getText().length() >= n && duration.getText().length() >=n && score.getText().length() >= n && genres.getText().length() >= n && description.getText().length() >= n){
         float scor = Float.parseFloat(score.getText());
         int dur = Integer.parseInt(duration.getText());
-        Movie movie = new Movie(title.getText(),dur,description.getText(),scor,genres.getText(), file.getPath());
+        Movie movie = new Movie(title.getText(),dur,description.getText(),scor,genres.getText(), file.getPath()); //TODO FIle chooser crashes
         movie.writeMovie();
     }
 }
@@ -92,6 +93,6 @@ public void passPath(){
     FileChooser fs = new FileChooser();
     fs.setTitle("Pick image for movie banner");
     Stage stage = (Stage) pane.getScene().getWindow();
-     file = fs.showOpenDialog(stage);
+    file = fs.showOpenDialog(stage);
 }
 }

@@ -1,12 +1,17 @@
 package com.example.prj;
 
 import Movie.Movie;
+import SessionHandler.SessionHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 import java.io.*;
 import java.net.URL;
@@ -30,6 +35,10 @@ public class MovieWin implements Initializable {
     Button b1; //Left
     @FXML
     Button b2;  //Right
+    @FXML
+    Pane secPane;
+    @FXML
+            AnchorPane ap;
     int moviesAt;
     ArrayList<Movie> movies= new ArrayList<>();
     public void ButtonLeft(){
@@ -133,10 +142,18 @@ public class MovieWin implements Initializable {
                 movies.get(i).numberOfTimesVisited++;
                 try {
                     Movie.editMovie2(movies.get(i));
-                    System.out.println(movies.get(i).getNumberOfTimesVisited());
+                    Pane secPane = SessionHandler.GPane;
+                    if(secPane.getChildren() != null){
+                        secPane.getChildren().clear();
+                    }
+                    SessionHandler.currentMovie=movies.get(i);
+                    SplitPane newLoadedPane =  FXMLLoader.load(getClass().getResource("hall-view.fxml")); //TODO fix link between Movie & reservation
+                    newLoadedPane.setPrefSize(secPane.getPrefWidth(), secPane.getPrefHeight());
+                    secPane.getChildren().add(newLoadedPane);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+
                });
 
     }
