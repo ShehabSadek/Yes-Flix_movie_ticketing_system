@@ -103,6 +103,8 @@ public class SelectChat implements Initializable {
         while(true){
             try{
                 Client client = (Client)in.readObject();
+                if(client.getUserName().equals(SessionHandler.currentSignedInClient.getUserName()))
+                    continue;
                 listView.getItems().add(client.getUserName());
             } catch (EOFException e) {
                 try {

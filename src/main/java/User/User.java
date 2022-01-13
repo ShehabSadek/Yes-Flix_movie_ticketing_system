@@ -2,7 +2,7 @@ package User;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public abstract class User implements Serializable {
     private int userID;
     private String userName;
     private String FName;
@@ -71,5 +71,6 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
 

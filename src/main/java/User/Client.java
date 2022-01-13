@@ -18,6 +18,9 @@ public class Client extends User implements Serializable {
         super(userName, FName, LName, password, email);
     }
 
+
+
+
     public void writeClient() throws IOException, ClassNotFoundException {
         File file = new File("Clients.BIN");
         if(file.length() == 0) {

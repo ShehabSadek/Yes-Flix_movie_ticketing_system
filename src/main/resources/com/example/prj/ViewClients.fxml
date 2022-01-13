@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="622.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prj.ViewClients">
+   <children>
+      <Label layoutX="40.0" layoutY="36.0" prefHeight="35.0" prefWidth="108.0" text="View Clients">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableView" layoutX="40.0" layoutY="93.0" prefHeight="496.0" prefWidth="850.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="69.0" text="ID" />
+          <TableColumn fx:id="usernameColumn" prefWidth="112.0" text="Username" />
+            <TableColumn fx:id="firstnameColumn" prefWidth="113.0" text="First Name" />
+            <TableColumn fx:id="lastnameColumn" prefWidth="106.0" text="Last Name" />
+            <TableColumn fx:id="isadminColumn" prefWidth="122.0" text="is Admin" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
