@@ -23,6 +23,7 @@ public class Movie implements Serializable {
     private String genres;
     private String ImagePath;
     private int id = 0;
+    public int numberOfTimesVisited=0;
     //private Halls hall;
 
     //Parameterized constructor
@@ -52,6 +53,10 @@ public class Movie implements Serializable {
     //Getters
     public float getScore() {
         return score;
+    }
+
+    public int getNumberOfTimesVisited() {
+        return numberOfTimesVisited;
     }
 
     public int getDuration() {
@@ -253,7 +258,6 @@ public class Movie implements Serializable {
                         out.writeObject(movie);
                     }
                 }
-
             }
             input.close();
             os.close();

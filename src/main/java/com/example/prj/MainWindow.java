@@ -61,6 +61,13 @@ public class MainWindow implements Initializable {
         stage.setY(boundsInScene.getCenterY() - 300);
         stage.show();
     }
+    public void MoviesWindow() throws IOException {
+        if(secPane.getChildren() != null){
+            secPane.getChildren().clear();
+        }
+        Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("MovieWin.fxml"));
+        secPane.getChildren().add(newLoadedPane);
+    }
     public void exitMainWindow(ActionEvent e){
         Stage stage = (Stage) Exit.getScene().getWindow();
         stage.close();
