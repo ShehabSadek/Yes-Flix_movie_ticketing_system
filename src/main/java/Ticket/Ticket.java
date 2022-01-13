@@ -66,4 +66,15 @@ public class Ticket implements Serializable {
     public void setPlayingTime(Time playingTime) {
         this.playingTime = playingTime;
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id=" + id +
+                ", playingDate=" + playingDate +
+                ", playingTime=" + playingTime +
+                ", movie=" + movie.getName() +
+                ", seat=" + seat.getSeatNumber() +
+                '}';
+    }
 }

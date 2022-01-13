@@ -8,6 +8,7 @@ import SessionHandler.SessionHandler;
 import Ticket.Ticket;
 import User.Client;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -16,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -38,6 +40,7 @@ public class HallsController {
     @FXML
     protected void initialize() throws IOException, ClassNotFoundException {
         Movie movie = new Movie();
+        movie.writeMovie();
         SessionHandler.currentMovie = movie;
         selectedSeats = new ArrayList<>();
         grid.getChildren().clear();
@@ -95,12 +98,12 @@ public class HallsController {
             }
             try {
                 Client client = SessionHandler.currentSignedInClient;
-                client.writeClient();
+                Client.editClient(client);
+                toPayment();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
+
         });
         grid.add(button, hall.getSeatColumns(), hall.getSeatRows());
     }
@@ -112,5 +115,14 @@ public class HallsController {
     protected void onTimePickerAction() throws IOException, ClassNotFoundException {
         initialize();
     }
+    protected void toPayment() throws IOException {
+        Pane secPane = SessionHandler.GPane;
+        if(secPane.getChildren() != null){
+            secPane.getChildren().clear();
+        }
+        Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("Reservations.fxml"));
 
+        newLoadedPane.setPrefSize(secPane.getPrefWidth(), secPane.getPrefHeight());
+        secPane.getChildren().add(newLoadedPane);
+    }
 }
