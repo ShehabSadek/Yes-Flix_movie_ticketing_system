@@ -4,6 +4,7 @@ package Halls;
 //import ConfigurationControl.ConfigurationList;
 //import CustomOutputStream.CustomOutputStream;
 import Movie.Movie;
+import SessionHandler.SessionHandler;
 import User.Client;
 import Halls.*;
 import java.io.*;
